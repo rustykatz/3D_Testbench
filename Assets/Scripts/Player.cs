@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
         }
 
         // Middle Mouse button 
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             Fire();
         }
