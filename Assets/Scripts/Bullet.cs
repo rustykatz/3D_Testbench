@@ -6,9 +6,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     private GameObject _Enemy;
+    //Set how much damage for enemy to take
+    public int dmg = 1; 
 	// Use this for initialization
 	void Awake () {
-        _Enemy = GameObject.FindGameObjectWithTag("Enemy");
+        
 	}
 	
 	// Update is called once per frame
@@ -20,11 +22,11 @@ public class Bullet : MonoBehaviour {
     {
         if (coll.gameObject.CompareTag("Enemy"))
         {
-
-            _Enemy.GetComponent<EnemyHealth>().TakeDamage(1);
+            _Enemy = GameObject.FindGameObjectWithTag("Enemy");
+            // Accesses enemy health variable and applys damage to it 
+            _Enemy.GetComponent<EnemyHealth>().TakeDamage(dmg);
 
             //Destroy(coll.gameObject);
-            //ITakeDamage damagable = Enemy.collider.GetComponent<ITakeDamage>();
             Destroy(gameObject);
 
         }
